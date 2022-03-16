@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Car App</title>
-        <meta name="description" content="Best car app notes" />
+        <title>Pizza App</title>
+        <meta name="description" content="Best pizza app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
