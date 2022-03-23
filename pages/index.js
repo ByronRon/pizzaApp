@@ -1,7 +1,6 @@
 import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect } from "react";
 import Featured from "../components/Featured";
 import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
