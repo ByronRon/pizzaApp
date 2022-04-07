@@ -1,13 +1,32 @@
 import styles from "../styles/Cart.module.css";
 import React, { useState } from "react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
 import Paypal from "../components/Payments/Paypal";
+import OrderDetail from "../components/OrderDetail";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { reset } from "../redux/cartSlice";
 
 const Cart = () => {
   const [open, setOpen] = useState(false);
+  const [cash, setCash] = useState(false);
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const createOrder = async (data) => {
+    try {
+      const res = await axios.post("http://localhost:3000/api/orders", data);
+      if (res.status === 201) {
+        dispatch(reset());
+        router.push(`/orders/${res.data._id}`);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -76,8 +95,13 @@ const Cart = () => {
           </div>
           {open ? (
             <div className={styles.paymentMethods}>
-              <button className={styles.payButton}>CASH ON DELIVERY</button>
-              <Paypal cart={cart}></Paypal>
+              <button
+                className={styles.payButton}
+                onClick={() => setCash(true)}
+              >
+                CASH ON DELIVERY
+              </button>
+              <Paypal cart={cart} createOrder={createOrder}></Paypal>
             </div>
           ) : (
             <button onClick={() => setOpen(true)} className={styles.button}>
@@ -86,6 +110,7 @@ const Cart = () => {
           )}
         </div>
       </div>
+      {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
     </div>
   );
 };
