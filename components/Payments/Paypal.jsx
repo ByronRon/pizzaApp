@@ -5,30 +5,29 @@ import {
   usePayPalScriptReducer,
 } from "@paypal/react-paypal-js";
 import axios from "axios";
-import { useRouter } from "next/router";
-import { reset } from "../../redux/cartSlice";
+// import { useRouter } from "next/router";
+// import { reset } from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 
 // https://paypal.github.io/react-paypal-js/?path=/docs/example-paypalbuttons--default
 
-const Paypal = ({ cart }) => {
-  console.log(cart);
+const Paypal = ({ cart, createOrder }) => {
   // This values are the props in the UI
   const amount = cart.total;
   const currency = "USD";
   const style = { layout: "vertical" };
-  const dispatch = useDispatch();
-  const router = useRouter();
+  // const dispatch = useDispatch();
+  // const router = useRouter();
 
-  const createOrder = async (data) => {
-    try {
-      const res = await axios.post("http://localhost:3000/api/orders", data);
-      res.status === 201 && router.push("/orders/" + res.data._id);
-      dispatch(reset());
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const createOrder = async (data) => {
+  //   try {
+  //     const res = await axios.post("http://localhost:3000/api/orders", data);
+  //     res.status === 201 && router.push("/orders/" + res.data._id);
+  //     dispatch(reset());
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // Custom component to wrap the PayPalButtons and handle currency changes
   const ButtonWrapper = ({ currency, showSpinner }) => {
@@ -81,7 +80,6 @@ const Paypal = ({ cart }) => {
                 total: cart.total,
                 method: 1,
               });
-              console.log(details);
             });
           }}
         />
