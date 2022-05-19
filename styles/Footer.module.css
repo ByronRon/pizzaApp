@@ -1,5 +1,5 @@
 .container {
-    height: calc(100vh - 100px);
+    height: calc(50vh - 100px);
     background-color: #222;
     display: flex;
 }
@@ -10,10 +10,14 @@
     display: flex;
 }
 
+.logo {
+    margin: 30px;
+}
+
 .item:last-child {
-    flex: 2;
-    padding: 50px;
-    justify-content: space-between;
+    flex: 7;
+    padding: 30px;
+    justify-content: center;
 }
 
 .card {
@@ -22,7 +26,7 @@
 }
 
 .title {
-    font-style: 18px;
+    font-size: 16px;
     color: #b7903c;
 }
 

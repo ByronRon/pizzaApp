@@ -1,0 +1,97 @@
+.mainAddButton {
+    padding: 10px;
+    margin: 20px;
+    background-color: #d1411e;
+    width: 150px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+
+.container {
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.wrapper {
+    width: 500px;
+    background-color: white;
+    padding: 5px 50px 15px 50px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 998;
+    box-shadow: rgb(0 0 0 / 75%) 4px 4px 8px;
+}
+
+.title {
+    max-width: 440px;
+    text-align: center;
+    margin: 38px 0px 30px;
+    text-shadow: rgb(0 0 0 / 65%) 2px 2px 3px;
+    color: rgb(255, 255, 255);
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+}
+
+.extra {
+    display: flex;
+}
+
+.extra input {
+    flex: 5;
+    justify-content: flex-start;
+}
+.extra .extraButton {
+    flex: 1;
+    height: 30px;
+    border: 1px solid grey;
+    background-color: white;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.extra .extraButton:hover {
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.createButton {
+    width: 100%;
+    height: 45px;
+    border: none;
+    background-color: #0a8020;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 5px 0;
+}
